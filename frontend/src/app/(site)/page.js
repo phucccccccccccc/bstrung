@@ -435,13 +435,13 @@ export default async function HomePage() {
               </div>
 
               <Link
-                href="/about"
-                className="group mt-1 inline-flex w-fit items-center gap-1 rounded-md bg-slate-950 px-2 py-1.5 text-[5px] font-bold uppercase tracking-wide text-white transition hover:bg-slate-800 sm:gap-1.5 sm:rounded-lg sm:px-3 sm:py-2 sm:text-[6px] md:text-[8px] lg:mt-2 lg:gap-3 lg:rounded-xl lg:px-6 lg:py-3.5 lg:text-[12px]"
-              >
-                Xem hồ sơ Bác sĩ Trung
+  href="/about"
+  className="group mt-1 inline-flex w-fit items-center gap-1 rounded-md bg-[#00BFD8] px-2 py-1.5 text-[5px] font-bold uppercase tracking-wide text-white transition hover:bg-[#009FB5] sm:gap-1.5 sm:rounded-lg sm:px-3 sm:py-2 sm:text-[6px] md:text-[8px] lg:mt-2 lg:gap-3 lg:rounded-xl lg:px-6 lg:py-3.5 lg:text-[12px]"
+>
+  Xem hồ sơ Bác sĩ Trung
 
-                <ArrowRight className="h-[7px] w-[7px] text-[#00FFFF] sm:h-[10px] sm:w-[10px] lg:h-[16px] lg:w-[16px]" />
-              </Link>
+  <ArrowRight className="h-[7px] w-[7px] text-white sm:h-[10px] sm:w-[10px] lg:h-[16px] lg:w-[16px]" />
+</Link>
             </div>
           </div>
         </section>

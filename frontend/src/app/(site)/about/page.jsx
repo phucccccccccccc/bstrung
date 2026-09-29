@@ -12,6 +12,7 @@ import {
   ScanLine,
   ShieldCheck,
   Sparkles,
+  X,
 } from "lucide-react";
 
 export const metadata = {
@@ -23,7 +24,7 @@ export const metadata = {
 const principleIconMap = {
   shield: ShieldCheck,
   scan: ScanLine,
-  fingerprint: Fingerprint,
+  fingerprint: Fingerprint, 
 };
 
 const galleryLayout = [
@@ -359,71 +360,76 @@ export default async function AboutPage() {
           </div>
         </section>
       )}
-      {about.certificates && (
-        <section className="border-b border-slate-100 bg-[#EEFFFF]/60 px-2 py-8 sm:px-4 sm:py-12 md:px-6 md:py-16 lg:px-10 lg:py-24">
-          <div className="mx-auto max-w-7xl">
-            <div className="mb-3 flex flex-row items-end justify-between gap-2 sm:mb-5 md:mb-7 lg:mb-12">
-              <div>
-                <div className="text-[5px] font-bold uppercase tracking-[0.08em] text-cyan-800 sm:text-[7px] md:text-[8px] lg:text-[11px]">
-                  {about.certificates.eyebrow}
-                </div>
+      <div
+  id="certificates"
+  className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 lg:gap-6"
+>
+  {about.certificates.items?.map((item, index) => (
+    <div
+      key={`${item.title}-${index}`}
+      className="group rounded-md border border-slate-100 bg-white p-1.5 transition-colors duration-300 hover:border-[#00FFFF] sm:rounded-lg sm:p-2.5 md:rounded-xl md:p-4 lg:rounded-2xl lg:p-6"
+    >
+      <div className="relative h-[70px] overflow-hidden rounded border border-slate-100 bg-[#F8FFFF] sm:h-[110px] md:h-[155px] lg:h-52">
+        <img
+          src={item.image}
+          alt={item.title}
+          className="h-full w-full object-cover"
+        />
 
-                <h2 className="mt-1 text-[14px] font-extrabold tracking-[-0.03em] text-slate-950 min-[430px]:text-[16px] sm:text-[21px] md:text-[28px] lg:mt-2 lg:text-[42px]">
-                  {about.certificates.title}
-                </h2>
-              </div>
+        <div className="absolute right-1 top-1 rounded-full bg-white/95 px-1 py-0.5 text-[3.5px] font-bold text-cyan-800 sm:text-[5px] md:px-2 md:text-[6px] lg:px-3 lg:py-1 lg:text-[9px]">
+          {item.country}
+        </div>
+      </div>
 
-              <div className="inline-flex max-w-[42%] items-center gap-1 rounded-full border border-[#CCFFFF] bg-white px-1.5 py-1 text-[4px] font-semibold leading-[6px] text-slate-600 sm:px-2 sm:text-[5px] md:px-3 md:text-[7px] lg:max-w-none lg:px-4 lg:py-2 lg:text-[11px]">
-                <BadgeCheck className="h-[7px] w-[7px] text-cyan-700 lg:h-[16px] lg:w-[16px]" />
-                {about.certificates.note}
-              </div>
-            </div>
+      <div className="mt-1.5 text-[4px] font-bold uppercase tracking-[0.08em] text-cyan-800 sm:text-[5px] md:text-[7px] lg:mt-5 lg:text-[10px]">
+        {item.label}
+      </div>
 
-            <div className="grid grid-cols-3 gap-1 sm:gap-2 md:gap-4 lg:gap-6">
-              {about.certificates.items?.map(
-                (item, index) => (
-                  <div
-                    key={`${item.title}-${index}`}
-                    className="group rounded-md border border-slate-100 bg-white p-1.5 transition-all duration-300 hover:-translate-y-1 hover:border-[#00FFFF] sm:rounded-lg sm:p-2.5 md:rounded-xl md:p-4 lg:rounded-2xl lg:p-6"
-                  >
-                    <div className="relative h-[70px] overflow-hidden rounded border border-slate-100 bg-[#F8FFFF] sm:h-[110px] md:h-[155px] lg:h-52">
-                      <img
-                        src={item.image}
-                        alt={item.title}
-                        className="h-full w-full object-cover"
-                      />
+      <h3 className="mt-1 text-[6px] font-bold leading-[8px] text-slate-950 sm:text-[8px] md:text-[11px] lg:mt-2 lg:text-lg">
+        {item.title}
+      </h3>
 
-                      <div className="absolute right-1 top-1 rounded-full bg-white/95 px-1 py-0.5 text-[3.5px] font-bold text-cyan-800 sm:text-[5px] md:px-2 md:text-[6px] lg:px-3 lg:py-1 lg:text-[9px]">
-                        {item.country}
-                      </div>
-                    </div>
+      <p className="mt-1 text-[4px] leading-[6px] text-slate-600 sm:text-[5px] md:text-[7px] lg:mt-3 lg:text-[13px] lg:leading-6">
+        {item.description}
+      </p>
 
-                    <div className="mt-1.5 text-[4px] font-bold uppercase tracking-[0.08em] text-cyan-800 sm:text-[5px] md:text-[7px] lg:mt-5 lg:text-[10px]">
-                      {item.label}
-                    </div>
+      <a
+        href={`#certificate-${index}`}
+        className="mt-2 flex w-full items-center justify-center gap-1 rounded bg-[#EEFFFF] px-1 py-1 text-[3.5px] font-bold uppercase text-cyan-800 transition hover:bg-[#CCFFFF] sm:mt-3 sm:text-[5px] md:mt-4 md:py-2 md:text-[7px] lg:mt-6 lg:py-3 lg:text-[11px]"
+      >
+        <ExternalLink className="h-[6px] w-[6px] lg:h-[15px] lg:w-[15px]" />
+        Xem chứng chỉ
+      </a>
 
-                    <h3 className="mt-1 text-[6px] font-bold leading-[8px] text-slate-950 sm:text-[8px] md:text-[11px] lg:mt-2 lg:text-lg">
-                      {item.title}
-                    </h3>
+      <div
+        id={`certificate-${index}`}
+        className="fixed inset-0 z-[9999] hidden items-center justify-center bg-black/80 p-4 backdrop-blur-sm target:flex"
+      >
+        <a
+          href="#certificates"
+          className="absolute inset-0"
+          aria-label="Đóng ảnh chứng chỉ"
+        />
 
-                    <p className="mt-1 text-[4px] leading-[6px] text-slate-600 sm:text-[5px] md:text-[7px] lg:mt-3 lg:text-[13px] lg:leading-6">
-                      {item.description}
-                    </p>
+        <div className="relative z-10 flex max-h-[92vh] max-w-[95vw] items-center justify-center">
+          <a
+            href="#certificates"
+            className="absolute -right-2 -top-12 flex h-10 w-10 items-center justify-center rounded-full bg-white text-slate-900 shadow-lg transition hover:bg-slate-100"
+            aria-label="Đóng"
+          >
+            <X className="h-5 w-5" />
+          </a>
 
-                    <button
-                      type="button"
-                      className="mt-2 flex w-full items-center justify-center gap-1 rounded bg-[#EEFFFF] px-1 py-1 text-[3.5px] font-bold uppercase text-cyan-800 sm:mt-3 sm:text-[5px] md:mt-4 md:py-2 md:text-[7px] lg:mt-6 lg:py-3 lg:text-[11px]"
-                    >
-                      <ExternalLink className="h-[6px] w-[6px] lg:h-[15px] lg:w-[15px]" />
-                      Xem chứng chỉ
-                    </button>
-                  </div>
-                )
-              )}
-            </div>
-          </div>
-        </section>
-      )}
+          <img
+            src={item.image}
+            alt={item.title}
+            className="max-h-[88vh] max-w-[92vw] rounded-xl bg-white object-contain shadow-2xl"
+          />
+        </div>
+      </div>
+    </div>
+  ))}
+</div>
 
       {about.gallery && (
         <section className="border-b border-slate-100 bg-white px-2 py-8 sm:px-4 sm:py-12 md:px-6 md:py-16 lg:px-10 lg:py-24">
