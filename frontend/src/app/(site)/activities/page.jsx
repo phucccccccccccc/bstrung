@@ -20,17 +20,17 @@ export const metadata = {
 
 const metrics = [
   {
-    value: "50+",
+    value: "10+",
     label: "Hội nghị & diễn đàn",
     description: "Hoạt động chuyên môn trong và ngoài nước",
   },
   {
-    value: "1.000+",
+    value: "500+",
     label: "Bác sĩ tham gia đào tạo",
     description: "Workshop và chương trình chia sẻ chuyên môn",
   },
   {
-    value: "15+",
+    value: "5+",
     label: "Năm phát triển chuyên môn",
     description: "Implant và phục hình nha khoa",
   },
