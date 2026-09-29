@@ -18,9 +18,7 @@ import {
   Video,
 } from "lucide-react";
 
-const baseUrl =
-  process.env.NEXT_PUBLIC_API_URL ||
-  "http://localhost:5000/api";
+const baseUrl = process.env.NEXT_PUBLIC_API_URL;
 
 export default function KnowledgePage() {
   const [pageData, setPageData] =
